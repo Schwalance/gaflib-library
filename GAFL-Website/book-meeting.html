@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Book Meeting
+    </title>
+
+<script>
+var currentDateTime = new Date();
+var year = currentDateTime.getFullYear();
+var month = (currentDateTime.getMonth() + 1);
+var date = (currentDateTime.getDate() + 1);
+
+if(date < 10) {
+  date = '0' + date;
+}
+if(month < 10) {
+  month = '0' + month;
+}
+
+var dateTomorrow = year + "-" + month + "-" + date;
+var checkinElem = document.querySelector("#checkin-date");
+var checkoutElem = document.querySelector("#checkout-date");
+
+checkinElem.setAttribute("min", dateTomorrow);
+
+checkinElem.onchange = function () {
+    checkoutElem.setAttribute("min", this.value);
+}
+</script>
+
+<style>
+
+.ib-logo {
+    width:50px;
+    
+}
+.times {
+  width:50px;
+}
+
+.gafl-logo {
+  width:60px;
+}
+
+/* Navbar container */
+    .navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.book-meeting {
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+div.elem-group {
+  margin: 20px 0;
+}
+
+
+
+label {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 10px;
+  font-size: 1.25em;
+}
+
+input, select, textarea {
+  border-radius: 2px;
+  border: 2px solid #777;
+  box-sizing: border-box;
+  font-size: 1.25em;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  padding: 10px;
+}
+
+
+
+textarea {
+  height: 250px;
+}
+
+hr {
+  border: 1px dotted #ccc;
+}
+
+button {
+  height: 50px;
+  background: orange;
+  border: none;
+  color: white;
+  font-size: 1.25em;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 2px solid black;
+}
+
+.book-meeting {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.book-meeting-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:25px;
+}
+
+.book-meeting-description {
+  font-family:Arial, Helvetica, sans-serif;
+  width:50%;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.book-meeting-description {
+  line-height:2;
+  width:80%;
+}
+
+.footer {
+    font-family: sans-serif;
+}
+
+.copyright {
+  font-size:10px;
+  font-style:italic;
+}
+
+</style>
+<script>
+  const scriptURL = '<https://script.google.com/macros/s/AKfycbwt_MkGzAd8vUuE0vTpRKYC99ypH-oXES5FzCiz2wADr561kECAp78YEYXj8KKCMY0q/exec>'
+  const form = document.forms[booking-meeting]
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+</head>
+
+<body>
+  <center>
+    <div class="logos">
+      <img class="ib-logo" src="ib-logo.png">
+      <img class="times" src="times.png">
+      <img class="gafl-logo" src="gafl-logo.jpeg">
+    </div>
+  </center>
+<div class="navbar">
+  <a href="index.html">Home</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">About GAFL IB
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+        <a href="what-is-ibdp.html">What is IBDP</a>
+        <a href="university-result.html">University Results</a>
+    </div>
+    </div>
+
+
+  <a href="announcement.html">Announcements</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">IB Subjects Bulletin Board
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+        <a href="math.html">IB Mathematics SL/HL</a>
+        <a href="chem.html">IB Chemistry SL/HL</a>
+        <a href="english-a.html">IB English A HL</a>
+        <a href="english-b.html">IB English B HL</a>
+        <a href="chinese.html">IB Chinese B SL</a>
+        <a href="japanese.html">IB Japanese B SL</a>
+        <a href="korean.html">IB Korean A SL/HL</a>
+        <a href="econ.html">IB Economics SL/HL</a>
+        <a href="history.html">IB History SL/HL</a>
+        <a href="tok.html">TOK</a>
+        <a href="ee.html">EE</a>
+        <a href="cas.html">CAS</a>
+    </div>
+  </div>
+  <a href="cas-recruit-board.html">CAS Recruit Board</a>
+  <a href="past-papers-library.html">Past Papers Library</a>
+  <a href="ib-graduates.html">IB Graduates</a>
+  <a href="calendar.html">Calendar</a>
+  <a href="teacher-info.html">Teacher Information</a>
+  <a href="book-meeting.html">Book Meeting</a>
+  <a href="resources.html">Resources</a>
+  <a href="thought-bubbles.html">Thought Bubbles</a>
+  <a href="self-study.html">Self Study Check-In</a>
+</div>
+
+
+    
+<div class="book-meeting-title"><center><p><strong>Book an Appointment</strong></p></center></div>
+<div class="book-meeting-description">
+  <p>Please Note that the time of appointment might change based on the schedule of the teacher. The book Appointment system does not assure the appointment, but this website will send an email to the teacher to confirm the appointment schedule. When the teacher confirms the appointment, the website will send an email back to the student with specific information about the appointment. </p>
+</div>
+
+  <div class="book-meeting">
+    <form name="booking-meeting" action="https://formsubmit.co/sangyoonisawesome@gmail.com" method="POST">
+      <div class="elem-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="Student_Name" placeholder="HongGil Dong" pattern=[A-Z\sa-z]{3,20} required>
+      </div>
+      <div class="elem-group">
+        <label for="student-number">Your Student Number</label>
+        <input type="number" id="Student_Number" name="Student_Number" placeholder="0000" pattern=(\d{4}) required>
+      </div>
+      <div class="elem-group">
+        <label for="email">Your E-mail</label>
+        <input type="email" id="email" name="Student_Email" placeholder="00s0000@gafl.hs.kr" required>
+      </div>
+      <div class="elem-group">
+        <label for="phone">Your Phone</label>
+        <input type="tel" id="phone" name="Student_Contact_Info" placeholder="010-1234-5678" pattern=(\d{3})-?\s?(\d{4})-?\s?(\d{4}) required>
+      </div>
+      <div class="elem-group">
+        <label for="Subject_Selection">Subject</label>
+        <select id="Subject_Selection" name="Subject" required>
+            <option value="">Choose a Subject for an Appointment</option>
+            <option value="Counseling">Counselling Session</option>
+            <option value="IB_Math">IB Mathematics</option>
+            <option value="IB_Eng_A">IB English A</option>
+            <option value="IB_Eng_B">IB English B</option>
+            <option value="IB_Chinese">IB Chinese B</option>
+            <option value="IB_Japanese">IB Japanese B</option>
+            <option value="IB_Korean">IB Korean A</option>
+            <option value="IB_Economics">IB Economics</option>
+            <option value="IB_History">IB History</option>
+            <option value="IB_Chemistry">IB Chemistry</option>
+            <option value="IB_Biology">IB Biology</option>
+            <option value="IB_Film">IB Film</option>
+            <option value="IB_Theater">IB Theater</option>
+            <option value="TOK">Theory of Knowledge</option>
+            <option value="EE">Extended Essay</option>
+            <option value="Adv_Eng_Conv">Advanced English Conversation</option>
+        </select>
+      </div>
+
+      <div class="elem-group">
+        <label for="subject-selection">Subject Teacher</label>
+        <select id="subject-teacher" name="Subject-Teacher" required>
+            <option value="">Choose a Teacher for an Appointment</option>
+            <option value="Tony Cartmel">Mr. Cartmel</option>
+            <option value="Kim Hansol">Mr. Hansol</option>
+            <option value="David Burns">Mr. Burns</option>
+            <option value="Reese Chris">Mr. Chris</option>
+            <option value="Xin Deng">Ms. Deng</option>
+            <option value="Mr.Hayato">Mr. Hayato</option>
+            <option value="Kim Hyunjin">Mrs. Hyunjin</option>
+            <option value="Shay Case">Mr. Case</option>
+            <option value="Pertwee Richard">Mr. Richard</option>
+            <option value="Kenneth Gassar">Mr. Gassar</option>
+            <option value="Sofia Mafe">Mrs. Mafe</option>
+            <option value="Shane Mcallister">Mr. McAllister</option>
+            <option value="Edward Pontee">Mr. Pontee</option>
+        </select>
+      </div>
+
+
+      <hr>
+      <div class="elem-group inlined">
+        <label for="checkin-date">Meeting Date</label>
+        <input type="date" id="Meeting-Date" name="Requested_Date" required>
+      </div>
+      <div class="elem-group">
+        <label for="time">Meeting Time</label>
+        <input type="time" id="time" name="Requested_Time" placeholder="00:00 AM/PM" pattern=(\d{2})-?\s?(\d{2})-?\s?(\d{2}) required>
+      </div>
+
+
+
+      <div class="elem-group">
+        <label for="room-selection">Select Room Preference</label>
+        <select id="room-selection" name="Room_Preference" required>
+            <option value="">Choose a Room from the List</option>
+            <option value="IB-Office">IB-office</option>
+            <option value="HomeRoom">Homeroom</option>
+            <option value="Room-204">Room 204</option>
+        </select>
+      </div>
+      <hr>
+      <div class="elem-group">
+        <label for="message">Meeting Agenda</label>
+        <textarea id="message" name="Additional_Information" placeholder="Tell us anything else that might be important." ></textarea>
+      </div>
+      <center><button type="submit">Request an Appointment</button>
+      </form></center>
+
+
+
+
+  </div>
+
+    
+  <footer class="footer">
+
+    <center><p>Phone: 010-8641-3884 &#124 Email: 19s1438@gafl.hs.kr</p></center>
+  <center><p class="copyright">&#169 2023 GAFL IT 13. All rights reserved.</p></center>
+</footer>
+
+</body>
+
+
+</html>
